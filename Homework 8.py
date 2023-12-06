@@ -9,7 +9,7 @@ Created on Mon Dec  4 15:01:22 2023
 coding for graph 1: This graph will be total deaths per year accross all regions
 """
 deathsByYearR = {}
-with open ("UnitedStates Clean.csv", 'r') as clean:
+with open ("Regions Clean.csv", 'r') as clean:
     for line in clean:
         line = line.strip("\n").split(",")
         year = line[3]
@@ -23,7 +23,7 @@ with open ("UnitedStates Clean.csv", 'r') as clean:
 print("---------------------")
 
 deathsByYearUS = {}
-with open ("Regions Clean.csv", 'r') as clean:
+with open ("UnitedStates Clean.csv", 'r') as clean:
     for line in clean:
         line = line.strip("\n").split(",")
         year = line[3]
@@ -34,7 +34,7 @@ with open ("Regions Clean.csv", 'r') as clean:
             deathsByYearUS[year] += deaths
 
 for year in deathsByYearR:
-    difference = deathsByYearR[year]-deathsByYearUS[year]
+    difference = deathsByYearUS[year]-deathsByYearR[year]
     print(year,"; US:", deathsByYearUS[year],"; Regions:", deathsByYearR[year],";", difference)
 
 '''
