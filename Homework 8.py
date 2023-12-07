@@ -114,6 +114,10 @@ df = df.reindex(sorted(df.columns), axis=1)
 with pd.option_context('display.max_columns', None):
     print(df)
 
+#the program for plot 2 has ended.
+
+
+
 
 '''
 coding for graph 1: This graph will be total deaths per region scaled by percent of the
@@ -204,6 +208,6 @@ plt.title('Deaths Per 100,000 by Region Between 2015-2023 From Select Causes', f
 plt.show()
 
 
-
+#the program for plot 1 has ended.
 
 
