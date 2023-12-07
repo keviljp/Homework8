@@ -33,20 +33,25 @@ coding for graph 2: This graph will be a 3D graph of total deaths by cause by ye
 deathsByYearType = {}
 
 #this will open a clean "unweighted" file that has data of deaths from 2016-2023. This has the death type, the region, the year, and the cound. There are over 250,000 entries
-with open("Regions Clean.csv", 'r') as clean:
-    for line in clean:
-        line = line.strip("\n").split(",")
-        year = line[3]
-        death_type = line[5]
-        deaths = int(line[6])
+try:
+    with open("Regions Clean.csv", 'r') as clean:
+        for line in clean:
+            line = line.strip("\n").split(",")
+            year = line[3]
+            death_type = line[5]
+            deaths = int(line[6])
 
-        if year not in deathsByYearType:
-            deathsByYearType[year] = {death_type: deaths}
-        else:
-            if death_type not in deathsByYearType[year]:
-                deathsByYearType[year][death_type] = deaths
+            if year not in deathsByYearType:
+                deathsByYearType[year] = {death_type: deaths}
             else:
-                deathsByYearType[year][death_type] += deaths
+                if death_type not in deathsByYearType[year]:
+                    deathsByYearType[year][death_type] = deaths
+                else:
+                    deathsByYearType[year][death_type] += deaths
+except FileNotFoundError:
+    print("File not found. Please check the file path or file name.")
+except Exception as e:
+    print(f"An error occurred: {e}")
 
 #this creates a 3-d plot and figure
 fig = plt.figure(figsize=(7, 8))
@@ -111,7 +116,7 @@ with pd.option_context('display.max_columns', None):
 
 
 '''
-coding for graph 2: This graph will be total deaths per region scaled by percent of the
+coding for graph 1: This graph will be total deaths per region scaled by percent of the
 us population made up by that region in that year. 
 '''
 '''
