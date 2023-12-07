@@ -210,4 +210,5 @@ plt.show()
 
 #the program for plot 1 has ended.
 
-
+#How were we creative?
+"""We used python's matplotlib's 3d graphing capability to display a three dimensional approach to visualizing the trends in mortality among 2015-2023. In addition, we"""
