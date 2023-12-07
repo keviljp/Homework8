@@ -32,24 +32,28 @@ us population made up by that region in that year.
 '''
 coding for graph 2: This graph will be a 3D graph of total deaths by cause by year. 
 '''
-#this is a dictionary that will organize the death type, death count, and year data
-deathsByYearType = {}
 
 #this will open a clean "unweighted" file that has data of deaths from 2016-2023. This has the death type, the region, the year, and the cound. There are over 250,000 entries
-with open("Regions Clean.csv", 'r') as clean:
-    for line in clean:
-        line = line.strip("\n").split(",")
-        year = line[3]
-        death_type = line[5]
-        deaths = int(line[6])
+deathsByYearType = {}
+try:
+    with open("Regions Clean.csv", 'r') as clean:
+        for line in clean:
+            line = line.strip("\n").split(",")
+            year = line[3]
+            death_type = line[5]
+            deaths = int(line[6])
 
-        if year not in deathsByYearType:
-            deathsByYearType[year] = {death_type: deaths}
-        else:
-            if death_type not in deathsByYearType[year]:
-                deathsByYearType[year][death_type] = deaths
+            if year not in deathsByYearType:
+                deathsByYearType[year] = {death_type: deaths}
             else:
-                deathsByYearType[year][death_type] += deaths
+                if death_type not in deathsByYearType[year]:
+                    deathsByYearType[year][death_type] = deaths
+                else:
+                    deathsByYearType[year][death_type] += deaths
+except FileNotFoundError:
+    print("File not found. Please check the file path or file name.")
+except Exception as e:
+    print(f"An error occurred: {e}")
 
 #this creates a 3-d plot and figure
 fig = plt.figure(figsize=(7, 8))
