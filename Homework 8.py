@@ -18,7 +18,7 @@ In plot 2, we have the type of death and year computed with the total number of 
 #put libraries here: 
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
-
+import pandas as pd
 
 '''
 coding for graph 1: This graph will be total deaths per region scaled by percent of the
@@ -98,3 +98,17 @@ ax.set_zlim(0, max([deathsByYearType[year][death_type] for year in deathsByYearT
 #this will display the 3-d graph in a compact layout
 plt.tight_layout()
 plt.show()
+
+# this is a DataFrame from deathsByYearType
+df = pd.DataFrame(deathsByYearType)
+
+# this transpose the df to have years as rows and death types as columns
+df = pd.DataFrame(deathsByYearType).transpose()
+
+# place the columns alphabetically 
+df = df.reindex(sorted(df.columns), axis=1)
+
+# Display 
+with pd.option_context('display.max_columns', None):
+    print(df)
+
