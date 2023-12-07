@@ -207,6 +207,33 @@ plt.ylabel('Deaths per 100,000', fontsize=12)
 plt.title('Deaths Per 100,000 by Region Between 2015-2023 From Select Causes', fontsize = 14)
 plt.show()
 
+'''
+This program is similar to the original used to clean the CDC file. We deleted columns from the CDC
+file that we didnt need, and iterated through it, writing any line with unweighted data to this 
+"Clean.csv" file that is shown here. From there we split that document into a Regions document and a 
+United states document to be used with our Graps. Shown here is the code to split the Clean.csv document.
+'''
+'''
+with open ('UnitedStates Clean.csv',"w") as doink:
+    doink.write('')
+with open ('Regions Clean.csv',"w") as doink:
+    doink.write('')
+US = open ('UnitedStates Clean.csv',"a")
+Regions = open ('Regions Clean.csv',"a")
+
+with open ("Clean.csv", 'r') as clean:
+    for line in clean:
+        line = line.strip("\n").split(",")
+        region = line[0]
+        if region == 'United States':
+            final = ",".join(line)
+            US.write(final+"\n")
+        else:
+            final = ",".join(line)
+            Regions.write(final+"\n")
+US.close()
+Regions.close()
+'''
 
 #the program for plot 1 has ended.
 
