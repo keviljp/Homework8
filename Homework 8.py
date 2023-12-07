@@ -120,7 +120,7 @@ with pd.option_context('display.max_columns', None):
 
 
 '''
-coding for graph 1: This graph will be total deaths per region scaled by percent of the
+coding for graph 2: This graph will be total deaths per region scaled by percent of the
 us population made up by that region in that year. 
 '''
 '''
@@ -246,4 +246,7 @@ excel_data.to_csv('census_data.csv', index=False)
 #the program for plot 2 has ended.
 
 #How were we creative?
-"""We used python's matplotlib's 3d graphing capability to display a three dimensional approach to visualizing the trends in mortality among 2015-2023. In addition, we"""
+"""
+We used python's matplotlib's 3d graphing capability to display a three dimensional approach to visualizing the trends in mortality among 2015-2023. In addition, we used a very
+unique data set pulled from multiple government websites to create legitimately applicable graphs.
+"""
