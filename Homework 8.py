@@ -247,6 +247,7 @@ excel_data.to_csv('census_data.csv', index=False)
 
 #How were we creative?
 """
-We used python's matplotlib's 3d graphing capability to display a three dimensional approach to visualizing the trends in mortality among 2015-2023. In addition, we used a very
-unique data set pulled from multiple government websites to create legitimately applicable graphs.
+We used python's matplotlib's 3d graphing capability to display a three dimensional approach to visualizing the trends in mortality among 2015-2023. In addition, we used very
+unique data sets pulled from multiple government websites to create legitimately applicable graphs. We sorted and cleaned out data, played with file types, iterated through dictionaries
+with in dictionaries, created scaling factors, and inventive loops to plot eye catching graphs. For this, I believe we deserve the creativity points. 
 """
